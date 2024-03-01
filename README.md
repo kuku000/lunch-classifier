@@ -9,7 +9,8 @@ Additionally, there is a small training set of 200 sets, each containing 50 samp
 ## Data preporcessing
 Using the ImageDataGenerator, resize all photos to 300x300 and perform augmentation on the training data.
 ## Models
-1.Resnet101v2
+1.Resnet101v2  
+
 2.Xception
 3.Effcientv2L
 **4.Xception + Efficientv2L(main)**
