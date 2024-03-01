@@ -11,15 +11,15 @@ Additionally, there is a small training set of 200 sets, each containing 50 samp
 ## Data preporcessing
 Using the ImageDataGenerator, resize all photos to 300x300 and perform augmentation on the training data.
 ## Models
-1.Resnet101v2  
+1. Resnet101v2  
 
-2.Xception  
+2. Xception  
 
-3.Effcientv2L  
+3. Effcientv2L  
 
-**4.Xception + Efficientv2L(main)**  
+**4. Xception + Efficientv2L(main)**  
 
-5.Efficientv2L + Resnet50  
+5. Efficientv2L + Resnet50  
 
 ### Unfreeze layers setting: 
 * Xception last 10 layers
@@ -28,38 +28,47 @@ Using the ImageDataGenerator, resize all photos to 300x300 and perform augmentat
 
 ![image](https://github.com/kuku000/lunch-classifier/assets/93827182/aa27ab33-91ad-4767-b5d3-3ec7ebd256b2)
 ## Parameter setting
-batchsize: 64  
+* batchsize: 64  
 
-initial learning rate: 0.01  
+* initial learning rate: 0.01  
 
-epoch: 20  
+* epoch: 20  
 
-decay epochs: 5  
+* decay epochs: 5  
 
-decay factor: 0.1  
+* decay factor: 0.1  
 
-loss function: categorical cross-entropy  
+* loss function: categorical cross-entropy  
 
 Optimizer: Nadam[(Nesterov-accelerated Adaptive Moment Estimation)](https://keras.io/api/optimizers/Nadam/)  
 
+
 ## Adjusting the loss function to address data imbalance issue
-Using class weights to adjust the proportion of increased loss when different labels are misclassified.
+Using class weights to adjust the proportion of increased loss when different labels are misclassified.  
+
 ![image](https://github.com/kuku000/lunch-classifier/assets/93827182/10a5c340-5311-4c48-a5f9-2f702a90e46b)
 ## Performance
 ### Test set:
-accuracy: 84.604%  
+* accuracy: 84.604%  
 
-prediction time per photo(300*300): 0.015s  
+* prediction time per photo(300*300): 0.015s  
 
-![image](https://github.com/kuku000/lunch-classifier/assets/93827182/2184da62-17b0-4dc1-ae3d-7e40e050e319)
-![image](https://github.com/kuku000/lunch-classifier/assets/93827182/6dc77901-c58d-4273-929b-e6f0c3999e4a)
+![image](https://github.com/kuku000/lunch-classifier/assets/93827182/2184da62-17b0-4dc1-ae3d-7e40e050e319)  
+
+![image](https://github.com/kuku000/lunch-classifier/assets/93827182/6dc77901-c58d-4273-929b-e6f0c3999e4a)  
+
 ##  Discussion
 ### Confusion Matrix
-![image](https://github.com/kuku000/lunch-classifier/assets/93827182/fef2ccc0-96e1-46e9-a2ca-dfee2668a86e)
-Unable to effectively distinguish between rapeseed(油菜), komatsuna (小松菜), and Chinese spinach(青松菜)。
-![image](https://github.com/kuku000/lunch-classifier/assets/93827182/eac3d560-259f-4332-ab8b-c507bee44d87)
+![image](https://github.com/kuku000/lunch-classifier/assets/93827182/fef2ccc0-96e1-46e9-a2ca-dfee2668a86e)  
+
+Unable to effectively distinguish between rapeseed(油菜), komatsuna (小松菜), and Chinese spinach(青松菜)。  
+
+![image](https://github.com/kuku000/lunch-classifier/assets/93827182/d7e6a439-5fd2-4285-9388-42c19a5dfb5b)  
+
+
 ### Classification Report
-![image](https://github.com/kuku000/lunch-classifier/assets/93827182/97a56d2a-35a8-43d2-b49b-c306f3f92266)
+![image](https://github.com/kuku000/lunch-classifier/assets/93827182/741fa9dd-a595-4940-86a6-6ec287280d23)
+
 It is difficult to distinguish between Satay Beef Slices, Sliced Pork with Garlic Sauce, and Black Pepper Pork.
 Fushan lettuce: With a small amount of data, precision (TP / TP + FP) is easily influenced.
 
@@ -78,3 +87,9 @@ Experimental setups:
 3. Freeze all layers except the final fully connected layer.  
 
 
+#### Results (Test):
+* EFF 7 layers, Xception 10 layers accuracy: 83.81%
+* EFF 3 layers, Xception 3 layers accuracy: 83.9%
+* All Freeze accuracy: 83.73%
+
+It may be related to the imbalance in the test data itself, or it could be due to the suboptimal extraction of the small dataset.
