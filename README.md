@@ -21,12 +21,11 @@ Using the ImageDataGenerator, resize all photos to 300x300 and perform augmentat
 
 5. Efficientv2L + Resnet50  
 
+
+![image](https://github.com/kuku000/lunch-classifier/assets/93827182/aa27ab33-91ad-4767-b5d3-3ec7ebd256b2)  
 ### Unfreeze layers setting: 
 * Xception last 10 layers
 * Efficientv2L last 7 layers
-
-
-![image](https://github.com/kuku000/lunch-classifier/assets/93827182/aa27ab33-91ad-4767-b5d3-3ec7ebd256b2)
 ## Parameter setting
 * batchsize: 64  
 
